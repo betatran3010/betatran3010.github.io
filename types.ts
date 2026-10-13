@@ -23,6 +23,7 @@ export interface Project {
   aiLine?: string;
   // Extended details
   description?: string;
+  venues?: string[];
   role?: string;
   team?: string; // New field
   duration?: string;

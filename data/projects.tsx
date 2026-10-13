@@ -17,6 +17,10 @@ export const projects: Project[] = [
     image: `${import.meta.env.BASE_URL}images/whos-reviewing/cover.png`,
     tags: ["AI-assisted peer review", "Human–AI interaction", "AI delegation", "Process tracing", "Human oversight"],
     year: "Jun–Sep 2026",
+    venues: [
+      "Accepted at AI-Native Academia and AI & Science - Evolution or Extinction? @ NeurIPS 2026",
+      "Submitted to CHI 2027",
+    ],
     description: "A process-tracing study of 104 researchers reviewing a paper with optional AI assistance.",
   },
   {
