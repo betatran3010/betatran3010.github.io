@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   loadEnv(mode, '.', '');
 
   return {
-    base: '/portfolio/',
+    base: '/',
     plugins: [react()],
     server: {
       port: 3000,
