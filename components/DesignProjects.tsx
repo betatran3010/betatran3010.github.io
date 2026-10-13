@@ -24,8 +24,9 @@ const DesignProjects: React.FC<{ projects: Project[] }> = ({ projects }) => {
             
             <div className="tbody">
               <div className="im"><img src={p.image} alt="" loading="lazy" /><span className="pc-lab"><SecIcon icon="palette" className="pcl-ic" />{p.context}</span></div>
+              <h3>{it.title}</h3>
               <div className="trow">
-                <div><h3>{it.title}</h3><p>{it.blurb}</p></div>
+                <p>{it.blurb}</p>
                 <span className="pc-btn">View Project <ArrowRight aria-hidden="true" /></span>
               </div>
             </div>

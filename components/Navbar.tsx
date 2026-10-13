@@ -16,14 +16,23 @@ const readTheme = (): Theme =>
 
 const Navbar: React.FC<NavbarProps> = ({ currentView, go }) => {
   const [theme, setTheme] = useState<Theme>(readTheme);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem('theme', theme); } catch { /* storage can be blocked */ }
   }, [theme]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   const click = (hash: string) => (e: React.MouseEvent) => {
     e.preventDefault();
+    setOpen(false);
     go(hash);
   };
   const onFun = currentView === 'funfacts';
@@ -31,17 +40,19 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, go }) => {
   return (
     <div className="wrap">
       <div className="navbar">
-        <nav className="pill" aria-label="Main">
+        <nav className={`pill${open ? ' menu-open' : ''}`} aria-label="Main">
           <a className="logo" href="#home" onClick={click('#home')} aria-label="Tran Le, home">
             <i aria-hidden="true" />Tran Le
           </a>
           <span className="vsep" aria-hidden="true" />
+          <div className="links" id="nav-links">
           <a className={`l ${onFun ? '' : 'on'}`} href="#projects" onClick={click('#projects')} aria-current={onFun ? undefined : 'page'}>Projects</a>
           {/* Fun facts page is paused for now; restore this link to bring it back.
           <a className={`l ${onFun ? 'on' : ''}`} href="#fun-facts" onClick={click('#fun-facts')} aria-current={onFun ? 'page' : undefined}>Fun facts</a>
           */}
-          <a className="l" href={CV_URL} target="_blank" rel="noopener noreferrer">CV</a>
-          <a className="l" href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a className="l" onClick={() => setOpen(false)} href={CV_URL} target="_blank" rel="noopener noreferrer">CV</a>
+          <a className="l" onClick={() => setOpen(false)} href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
           <button
             type="button"
             className="sw"
@@ -56,6 +67,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, go }) => {
                 <svg className="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
               </span>
             </span>
+          </button>
+          <button
+            type="button"
+            className="burger"
+            aria-expanded={open}
+            aria-controls="nav-links"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen(o => !o)}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
           </button>
         </nav>
       </div>
