@@ -355,7 +355,7 @@ const ReposetDetailSection: React.FC = () => {
               {
                 icon: Sparkles,
                 title: "Creativity",
-                desc: "Students express creativity through their wardrobe through small styling choices rather than large changes."
+                desc: "Students express creativity in their wardrobe through small styling choices rather than large changes."
               },
               {
                 icon: Shirt,
@@ -365,7 +365,7 @@ const ReposetDetailSection: React.FC = () => {
               {
                 icon: Eye,
                 title: "Visibility",
-                desc: "Students overlook clothes hidden in piles, corners, and drawers, and searching them in a cluttered closet takes too much time."
+                desc: "Students overlook clothes hidden in piles, corners, and drawers, and searching through a cluttered closet takes too much time."
               }
             ].map((insight, i) => (
               <div key={i} className="p-6 md:p-8 rounded-[2rem] shadow-md transition-transform relative overflow-hidden group" style={{ background: '#F5B800', color: '#2B1A00' }}>
@@ -418,7 +418,7 @@ const ReposetDetailSection: React.FC = () => {
             <span className="text-ink font-bold">Heavy upfront manual setup:</span> Items that are not photographed and cataloged never appear in recommendations.
           </li>
           <li className="text-base md:text-lg leading-relaxed">
-            <span className="text-ink font-bold">Little support for wardrobe change over time:</span> Current apps don't occasionally prompt updates.
+            <span className="text-ink font-bold">Little support for wardrobe change over time:</span> Current apps rarely prompt updates.
           </li>
           <li className="text-base md:text-lg leading-relaxed">
             <span className="text-ink font-bold">Weak connection between digital suggestions and physical closets:</span> Users still waste time searching through cluttered drawers or racks to act on recommendations.
@@ -554,7 +554,7 @@ const ReposetDetailSection: React.FC = () => {
             why="Students are often short on time and default to familiar outfits. Also, at places like Cornell, where weather, building temperatures, and schedules can shift dramatically within a single day, usual quick choices can leave students unprepared for later contexts."
             note={
               <ul className="list-disc pl-5 space-y-2">
-                <li>Each morning, Reposet generates three outfit options using schedule, location, and day-long weather changes (assumingly integrating Google Calendar, university schedules, and weather data).</li>
+                <li>Each morning, Reposet generates three outfit options using schedule, location, and day-long weather changes (assuming integration with Google Calendar, university schedules, and weather data).</li>
                 <li>Two options prioritize underused pieces, while another includes a recently worn item to preserve user autonomy for personal, emotional, or comfort-based choices.</li>
               </ul>
             }
@@ -606,7 +606,7 @@ const ReposetDetailSection: React.FC = () => {
             why="Suggestions alone don’t change habits. Without confirming what’s actually worn, students can still default to favorites/conveniences and rotation tracking can become inaccurate and unmotivating."
             note={
               <ul className="list-disc pl-5 space-y-2">
-                <li>While it adds a small step, this check-in helps determine which item is already worn today and enables behavioral reinforcement for outfit rotation. </li>
+                <li>While it adds a small step, this check-in helps determine which items have already been worn today and enables behavioral reinforcement for outfit rotation. </li>
                 <li>If the battery drops too low due to repeatedly wearing recently worn clothes, personalized suggestions pause until a not recently worn item is restyled.</li>
               </ul>
             }
@@ -622,14 +622,14 @@ const ReposetDetailSection: React.FC = () => {
             note={
               <ul className="list-disc pl-5 space-y-2">
                 <li>Reposet prompts wardrobe updates only when needed (e.g., most known items are on repeat, the wardrobe passes a size threshold, or during a monthly check-in).</li>
-                <li>Photos are used as closet cameras can’t reliably capture details like silhouette, texture, and length needed for outfit pairing.</li>
+                <li>Photos are used because closet cameras can’t reliably capture details like silhouette, texture, and length needed for outfit pairing.</li>
               </ul>
             }
             hasComparison={true}
             iterationNote="Iteration from heuristic evaluation & usability testing"
             iterationTitle="Upload Flow Redesign"
             beforeText="Update prompts forced users into updating without a clear way to postpone. Wardrobe updates relied on a rigid, bulk upload flow. While some users appreciated the efficiency of capturing many items together, others found it quite effortful as it requires space, time, and taking out a portion of their closet. Instructional screens repeated every time, not suitable for advanced users. Example category cards looked clickable but weren’t."
-            afterText="Update prompts allow postponement. Supports both single-item quick adds and bulk uploads, with multiple photos in either path. Instructions can be skipped by returning users. Example categories no longer appear clickable."
+            afterText="Update prompts allow postponement. It supports both single-item quick adds and bulk uploads, with multiple photos in either path. Instructions can be skipped by returning users. Example categories no longer appear clickable."
             beforeVideoSrc={`${import.meta.env.BASE_URL}/videos/update1.mp4`}
             afterVideoSrc={`${import.meta.env.BASE_URL}/videos/update2.mp4`}
           />
@@ -638,7 +638,7 @@ const ReposetDetailSection: React.FC = () => {
           <FeatureRow
             number="6"
             title="Rotation Points & Reward System"
-            why="Usability testing revealed that users didn’t clearly understand what rotation points meant, why they mattered, or what accumulating them led to, although it’s a core concept of the app for motivation. Several assumed points should be redeemable as familiar apps with points do that, so users suggested the redemption system could be developed."
+            why="Usability testing revealed that users didn’t clearly understand what rotation points meant, why they mattered, or what accumulating them led to, although it’s a core concept of the app for motivation. Several assumed points should be redeemable, as in familiar apps with points systems, so users suggested the redemption system could be developed."
             note={
               <ul className="list-disc pl-5 space-y-2">
                 <li>Added a help & documentation page explaining that points reward rotating items and linking them to real-world impact (e.g., money saved through reduced purchasing).</li>

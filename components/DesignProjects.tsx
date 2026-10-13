@@ -5,7 +5,7 @@ import { Project } from '../types';
 
 const items = [
   { id: 3, file: 'reposet.fig', title: 'Reposet', blurb: 'A context-aware wardrobe system that supports outfit planning, clothing rotation, and sustainable reuse in everyday student life.' },
-  { id: 4, file: 'duolingo-notes.md', title: 'Duolingo’s Note-Taking Feature Case Study', blurb: 'An in-app note-taking feature in Figma to support vocabulary and grammar retention through active recall and in-context reflection' },
+  { id: 4, file: 'duolingo-notes.md', title: 'Duolingo’s Note-Taking Feature Case Study', blurb: 'An in-app note-taking feature in Figma to support vocabulary and grammar retention through active recall and in-context reflection.' },
 ];
 
 const DesignProjects: React.FC<{ projects: Project[] }> = ({ projects }) => {

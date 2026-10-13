@@ -24,7 +24,7 @@ const FEATURES: { key: string; name: string; color: string; body: React.ReactNod
       {
         src: 'cui-fig1.jpg',
         cap: 'Clarifications attach to highlighted words in the caption. Clicking one opens a small popup above the transcript and saves the same content as a minimized tab in the sidebar, with images for concrete items.',
-        alt: 'XPLAIN in a Zoom call: the word “call the shots” is highlighted green in the caption, a popup above the caption defines it, and the sidebar lists the clarification in minimized and expanded form',
+        alt: 'XPLAIN in a Zoom call: the phrase “call the shots” is highlighted green in the caption, a popup above the caption defines it, and the sidebar lists the clarification in minimized and expanded form',
       },
     ],
   },
@@ -341,7 +341,7 @@ const XplainDetail: React.FC = () => {
         <SecHead icon="doc">Overview</SecHead>
         <div className="pr-obody">
           <p>
-            Non-native speakers (NNS) encounter substantial <strong className="pr-term">cognitive challenges during real-time spoken communication</strong>, including processing unfamiliar vocabulary, predicting upcoming content, and formulating responses simultaneously under conversational time pressure. Seeking clarification or consulting translation tools can add to these demands and interrupt conversational flow. We ask:
+            Non-native speakers (NNS) encounter substantial <strong className="pr-term">cognitive challenges during real-time spoken communication</strong>, including processing unfamiliar vocabulary, predicting upcoming content, and formulating responses simultaneously under conversational time pressure. Seeking clarification or consulting translation tools can add to these demands and interrupt conversational flow. We asked:
           </p>
           <div className="q pr-q2">
             <p><b>RQ</b>How can we support non-native speakers’ comprehension and expression in live conversations while accommodating individual processing needs and preserving control over their contributions?</p>
