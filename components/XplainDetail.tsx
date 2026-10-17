@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDown, Hourglass, Users } from 'lucide-react';
+import { ArrowDown, Hourglass, Star } from 'lucide-react';
 import SecHead, { SecIcon } from './SecHead';
 
 type IconName = React.ComponentProps<typeof SecHead>['icon'];
@@ -33,7 +33,7 @@ const FEATURES: { key: string; name: string; color: string; body: React.ReactNod
     name: 'Response suggestions',
     color: '#6F5FD6',
     body: (
-      <>For NNS, slower lexical retrieval and less automatic formulation can compete with conceptualization (deciding what to say), contributing to pauses, hesitations, and repairs. Suggestions provide <strong className="pr-term">relevant ideas and sentence frames</strong> after conversational questions to support response planning and expression.</>
+      <>For NNESs, slower lexical retrieval and less automatic formulation can compete with conceptualization (deciding what to say), contributing to pauses, hesitations, and repairs. Suggestions provide <strong className="pr-term">relevant ideas and sentence frames</strong> after conversational questions to support response planning and expression.</>
     ),
     figs: [
       {
@@ -68,8 +68,9 @@ const FEATURES: { key: string; name: string; color: string; body: React.ReactNod
 ];
 
 const ANALYSIS: [string, string][] = [
-  ['Interview analysis', 'We conducted inductive reflexive thematic analysis in ATLAS.ti, examining participants’ backgrounds and communication strategies alongside scaffold usefulness, timing, cognitive effort, and social comfort to identify circumstances that supported participation or introduced distraction and overreliance.'],
-  ['Disfluency coding', 'We coded pauses, hesitations, and repairs (restarts, reformulations, and repetitions), recording their timing, duration, and associated scaffold to examine their occurrence during scaffold use.'],
+  ['Survey analysis', 'We analyzed ratings of overall effectiveness and individual scaffold usefulness, timing, and disruption.'],
+  ['Interview analysis', 'We conducted inductive reflexive thematic analysis in ATLAS.ti to examine scaffold use, perceived benefits and cognitive costs, effects on confidence and participation, and how individual differences influenced experiences with AI assistance.'],
+  ['Disfluency coding', 'We coded filler words, pauses, hesitations, and repairs (restarts, reformulations, and repetitions), recording their timing, duration, and associated scaffold to examine their occurrence during scaffold use.'],
   ['Visual behavioral coding', 'We coded gaze shifts, sustained viewing, clicks, and scaffold uptake around the captions and sidebar, contextualizing disfluencies in relation to reading, response planning, and interface interaction.'],
 ];
 
@@ -77,7 +78,7 @@ type Adapt = { dim: string; how: string; adj: string; lower: [string, string][];
 const ADAPT: Adapt[] = [
   {
     dim: 'Language proficiency',
-    how: 'LexTALE and idiom-comprehension scores',
+    how: 'LexTALE and idiom comprehension assessment',
     adj: 'Vocabulary and response formulation',
     lower: [
       ['Clarifications', 'Explain a broader range of complex and figurative expressions.'],
@@ -90,32 +91,32 @@ const ADAPT: Adapt[] = [
   },
   {
     dim: 'Domain familiarity',
-    how: 'Domain-knowledge questions and self-rated familiarity',
-    adj: 'Assumed technical knowledge',
-    lower: [['Clarifications', 'Explain foundational domain terms and familiar words with specialized meanings.'], ['Suggestions', 'Use everyday vocabulary or clearly explained technical terms.']],
-    higher: [['Clarifications', 'Focus on specialized terminology beyond common domain knowledge.'], ['Suggestions', 'Use more advanced domain vocabulary.']],
+    how: 'Domain-knowledge assessment',
+    adj: 'Assumed subject knowledge',
+    lower: [['Clarifications', 'Explain foundational terminology in that domain.'], ['Suggestions', 'Use accessible domain vocabulary.']],
+    higher: [['Clarifications', 'Focus on specialized or advanced terminology in that domain.'], ['Suggestions', 'Incorporate more advanced domain concepts and terminology.']],
   },
   {
     dim: 'Metacognitive awareness',
-    how: 'Self-reported listening and monitoring strategies',
-    adj: 'Clarification coverage and supporting context',
-    lower: [['Clarifications', 'Explain more terms and include relevant background, even when the conversation provides clues to their meaning.']],
-    higher: [['Clarifications', 'Focus on terms that remain unclear from context, drawing on earlier discussion without repeating background information.']],
+    how: 'Metacognitive Awareness Listening Questionnaire (MALQ)',
+    adj: 'Clarification coverage and contextual support',
+    lower: [['Clarifications', 'Explain more potentially unfamiliar terms, including those inferable from context.']],
+    higher: [['Clarifications', 'Focus on terms that remain difficult to infer from context, avoiding redundant explanations.']],
   },
   {
     dim: 'Working memory',
-    how: 'Sentence-recall performance, language and listening-strategy assessments',
-    adj: 'Sentence structure and summary content',
-    lower: [['Suggestions', 'Use short, direct sentences with fewer clauses.'], ['Summaries', 'Favor shorter summaries focused on essential points.']],
-    higher: [['Suggestions', 'Allow more complex sentences connecting reasons, contrasts, and conditions.'], ['Summaries', 'Favor summaries with more context and detail.']],
+    how: 'Sentence-recall performance',
+    adj: 'Syntactic complexity and summary detail',
+    lower: [['Suggestions', 'Use shorter, more direct sentence structures.'], ['Summaries', 'Favor concise phrasing and essential information.']],
+    higher: [['Suggestions', 'Allow more complex sentence structures expressing relationships and contrasts.'], ['Summaries', 'Permit richer contextual detail within summaries.']],
   },
 ];
 
 const MEASURES: [string, string][] = [
-  ['Background assessments', 'We measured English proficiency, prior coursework, domain exposure, and medical-language familiarity to contextualize individual differences.'],
-  ['Experience ratings', 'We assessed understanding, mental effort, time pressure, response preparation, expression accuracy, conversational flow, and confidence across conditions through format-specific ratings.'],
-  ['Vocabulary recall', 'We assessed retention of clarified terms to examine learning alongside immediate conversational support.'],
-  ['Interview analysis', 'We coded explanations of format preferences and trade-offs to understand the reasoning behind ratings and language-switching choices.'],
+  ['Background assessments', 'English proficiency, language of prior education, domain exposure, and medical terminology familiarity.'],
+  ['Experience ratings', 'Perceived comprehension, processing effort, response preparation, expression accuracy, conversational flow, and confidence across formats.'],
+  ['Vocabulary recall', 'Retention of clarified terminology to investigate learning alongside immediate conversational support.'],
+  ['Interview analysis', 'How participants used existing knowledge, evaluated language formats, and explained their preferences and trade-offs.'],
 ];
 
 const DISCOVERY: { title: string; items: [string, string][]; design: string }[] = [
@@ -163,7 +164,7 @@ const FACTORS: { key: 'lang' | 'ctx' | 'dom'; name: string; levels: string[]; wh
   {
     key: 'ctx',
     name: 'Processing context',
-    levels: ['Comprehension', 'Response planning/production'],
+    levels: ['Comprehension', 'Response planning and production'],
     why: [
       'Comprehension requires connecting incoming words to meaning.',
       'Production requires retrieving and formulating that meaning into English speech, making conceptual access and available wording jointly important.',
@@ -325,6 +326,25 @@ const XplainDetail: React.FC = () => {
         />
       </div>
 
+      {/* ------------------------------------------------------------ overview */}
+      <section className="pr-sec pr-overview xp-sec" id="xp-overview">
+        <SecHead icon="doc">Overview</SecHead>
+        <div className="pr-obody">
+          <p>
+            Non-native English speakers (NNESs) encounter substantial <strong className="pr-term">cognitive challenges during real-time spoken communication</strong>, including processing unfamiliar vocabulary, predicting upcoming content, and formulating responses simultaneously under conversational time pressure. Seeking clarification or consulting translation tools can add to these demands and interrupt conversational flow. We asked:
+          </p>
+          <div className="q pr-q2">
+            <p><b>RQ</b>How can we support non-native speakers’ comprehension and expression in live conversations while accommodating individual processing needs and preserving control over their contributions?</p>
+          </div>
+          <p>
+            We developed XPLAIN, an AI assistant built with <u className="pr-ul">React/Electron</u> and a <u className="pr-ul">Python backend</u>, integrating <u className="pr-ul">Google Cloud Speech-to-Text</u> and <u className="pr-ul">GPT-4o</u> to <strong className="pr-term">provide proactive, just-in-time cognitive scaffolding</strong> during video meetings. It uses live conversational cues to identify potential comprehension and response-planning gaps and deliver contextual assistance.
+          </p>
+          <p>
+            Under my PhD mentor’s project leadership, my UX/UI teammates and I developed and evaluated Wizard-of-Oz prototypes, conducted user studies and interviews, and systematically coded and analyzed user data. I shared designs and findings with engineering teammates who built the automated system in parallel. Across studies, we examined assistance’s benefits and costs to guide adaptations to users’ cognitive profiles, support needs, and conversational demands.
+          </p>
+        </div>
+      </section>
+
       {/* ------------------------------------------------------------ contents */}
       <nav className="xp-contents" id="xp-contents" aria-label="Studies in this project">
         {CONTENTS.map(c => (
@@ -335,25 +355,6 @@ const XplainDetail: React.FC = () => {
           </a>
         ))}
       </nav>
-
-      {/* ------------------------------------------------------------ overview */}
-      <section className="pr-sec pr-overview xp-sec" id="xp-overview">
-        <SecHead icon="doc">Overview</SecHead>
-        <div className="pr-obody">
-          <p>
-            Non-native speakers (NNS) encounter substantial <strong className="pr-term">cognitive challenges during real-time spoken communication</strong>, including processing unfamiliar vocabulary, predicting upcoming content, and formulating responses simultaneously under conversational time pressure. Seeking clarification or consulting translation tools can add to these demands and interrupt conversational flow. We asked:
-          </p>
-          <div className="q pr-q2">
-            <p><b>RQ</b>How can we support non-native speakers’ comprehension and expression in live conversations while accommodating individual processing needs and preserving control over their contributions?</p>
-          </div>
-          <p>
-            We developed XPLAIN, an AI assistant built with <u className="pr-ul">React/Electron</u> and a <u className="pr-ul">Python backend</u>, integrating <u className="pr-ul">Google Cloud Speech-to-Text</u> and <u className="pr-ul">GPT-4o</u> to <strong className="pr-term">provide proactive, just-in-time cognitive scaffolding</strong> during video meetings. It uses live conversational cues to identify potential gaps in understanding and participation and generate contextual support.
-          </p>
-          <p>
-            Under my PhD mentor’s project leadership, my UX/UI teammates and I developed and evaluated Wizard-of-Oz prototypes, conducted user studies and interviews, and systematically coded and analyzed user data. I shared designs and findings with engineering teammates who built the automated system in parallel. Across studies, we examined assistance’s benefits and costs to guide adaptations to users’ cognitive profiles, support needs, and conversational demands.
-          </p>
-        </div>
-      </section>
 
       {/* ------------------------------------------------------------ study 1 */}
       <Sec id="xp-s1" icon="chat" kicker="Study 1" title="Supporting Comprehension, Response Planning, and Context Tracking">
@@ -400,7 +401,7 @@ const XplainDetail: React.FC = () => {
         </div>
 
         <h3 className="pr-h3">Coding &amp; Analysis</h3>
-        <p>We first evaluated XPLAIN with 38 participants, combining different measures to examine scaffold use and experience.</p>
+        <p>We evaluated XPLAIN in a Wizard-of-Oz study with 38 NNESs who participated in a 15-minute collaborative design discussion involving unfamiliar linguistic, cultural, and domain-specific content. We collected post-study surveys and interviews, alongside recordings of speech and interface interactions, to examine scaffold use and experience.</p>
         <dl className="pr-spec">
           {ANALYSIS.map(([t, d]) => (
             <div key={t}><dt>{t}</dt><dd>{d}</dd></div>
@@ -409,24 +410,25 @@ const XplainDetail: React.FC = () => {
 
         <h3 className="pr-h3">Key Findings</h3>
         <div className="xp-findings">
-          <Finding n={1} title="Scaffolds supported understanding and confidence">
-            <p>Participants used XPLAIN to bridge knowledge gaps and prepare contributions without asking the other speaker for clarification. This “backstage” repair channel reduced the social discomfort of revealing uncertainty.</p>
+          <Finding n={1} title="Cognitive support comes with processing and autonomy trade-offs">
+            <p>Participants valued receiving timely assistance without actively seeking help. Its <strong className="pr-term">private, backstage</strong> delivery also reduced the social discomfort of revealing uncertainty, which supported confidence and participation. Overall, the scaffolds were perceived as useful for their intended purposes, but each introduced distinct trade-offs:</p>
+            <ul className="xp-fl">
+              <li><strong>Lexical clarifications:</strong> Reading explanations could divert attention from ongoing speech, while unnecessary clarifications added redundant information.</li>
+              <li>
+                <strong>Response suggestions:</strong> Although suggestions eased idea generation, users either:
+                <div className="xp-either">
+                  <p>paused to read and weigh suggestions against their own ideas, disrupting listening and delaying responses</p>
+                  <span aria-hidden="true">and/or</span>
+                  <p>adopted them with minimal modification, masking overreliance behind fluent, homogenized responses.</p>
+                </div>
+              </li>
+              <li><strong>Situational summaries:</strong> Information-dense summaries could compete for attention during ongoing conversation and feel unnecessary in less structured discussions.</li>
+            </ul>
           </Finding>
-          <Finding n={2} title="Assistance introduced trade-offs in attention and authorship">
-            <p>Clarifications and summaries facilitated low-friction understanding and context tracking, while suggestions added cognitive demands during response formation. Users either:</p>
-            <div className="xp-either">
-              <p>paused to read and weigh suggestions against their own ideas, disrupting listening and delaying responses</p>
-              <span aria-hidden="true">and/or</span>
-              <p>adopted them with minimal modification, masking overreliance behind fluent, homogenized responses.</p>
-            </div>
-          </Finding>
-          <Finding n={3} title="Smoother speech was not always a meaningful outcome">
-            <p>Participants retrospectively described accepting brief hesitations and repairs as a cost of making more substantive contributions. This challenges treating reduced disfluency as a sufficient indicator of better support since those disfluencies may reflect useful consideration and integration of assistance.</p>
+          <Finding n={2} title="Effective assistance depends on users’ capabilities and strategies">
+            <p>Crucially, these trade-offs were not experienced uniformly. The same assistance could facilitate low-friction conversational grounding and participation or introduce distraction, cognitive overload, and overreliance, depending on the user and moment.</p>
           </Finding>
         </div>
-        <Note icon={<Users />}>
-          Across participants, the same assistance could support participation in one situation yet distract, overwhelm, or encourage overreliance in another. These experiences varied with language proficiency, communication style, prior AI experience, and the demands of the conversation.
-        </Note>
       </Sec>
 
       {/* ------------------------------------------------------------ study 2 */}
@@ -436,16 +438,13 @@ const XplainDetail: React.FC = () => {
           <p><b>RQ</b>How can we tailor the content, amount, and presentation of scaffolding to users’ cognitive profiles and support needs to effectively support participation and preserve control over their contributions?</p>
         </div>
 
-        <h3 className="pr-h3">Personalization Framework</h3>
+        <h3 className="pr-h3">Characterizing User Heterogeneity</h3>
         <p>
-          We organized interview codes into eight thematic domains covering user backgrounds, communication strategies, and scaffold evaluations. Using <strong className="pr-term">latent class analysis (LCA)</strong>, we compared alternative models to identify profiles within each domain and examined associations with participant characteristics and questionnaire ratings.
-        </p>
-        <p>
-          Limited correspondence across domains suggested that support needs could not be captured by a single user type. Together with disfluency and visual behavioral analyses, these findings informed a developing personalization framework refined across studies.
+          We organized interview codes into eight thematic domains covering language backgrounds, communication strategies, AI usage and trust, and evaluations of individual scaffolds. Using <strong className="pr-term">latent class analysis (LCA)</strong>, we identified distinct subgroups within each domain and examined associations with participant characteristics and feature ratings. Limited correspondence across domains suggested that support needs could not be captured by a single user type.
         </p>
 
         <h3 className="pr-h3">Adaptive Support</h3>
-        <p>User assessments guide four overlapping dimensions of personalization.</p>
+        <p>Together with behavioral analyses and cognitive theories of language processing, these findings informed a four-dimensional personalization framework:</p>
         <div className="xp-cmps">
           {ADAPT.map((a, di) => {
             return (
@@ -484,27 +483,30 @@ const XplainDetail: React.FC = () => {
             <figcaption><b>Example 2:</b> Short idea phrases without sample responses.</figcaption>
           </figure>
         </div>
-        <Note small icon={<Hourglass />}>Data collection is complete. Analysis is ongoing.</Note>
+        <Note small icon={<Hourglass />}>We ran 37 user studies to evaluate this personalization framework. Analysis is ongoing.</Note>
       </Sec>
 
       {/* ------------------------------------------------------------ study 3 */}
       <Sec id="xp-s3" icon="languages" kicker="Study 3" title="Drawing on Bilingual Resources for Understanding and Expression">
         <p>
-          Beyond differences in proficiency and cognitive resources, bilingual speakers bring <strong className="pr-term">knowledge acquired and used across languages</strong>. The Complementarity Principle describes how this knowledge is <strong className="pr-term">distributed across domains</strong>. For example, someone may know medical concepts better in their native language (L1) from growing up in their home country, but computing terminology better in English from studying that major in the US. We asked:
+          Beyond differences in proficiency and cognitive resources, non-native English speakers (NNESs) possess <strong className="pr-term">unique domain knowledge acquired and used across languages</strong>. We wanted to explore how AI could go beyond compensating for processing difficulties to help users bring more of their <strong className="pr-term">own knowledge and expertise</strong> into conversations.
+        </p>
+        <p>
+          As described by the <strong className="pr-term">Complementarity Principle</strong>, bilingual speakers may be more familiar with certain concepts in the language in which they learned and used them. For example, someone who learned about health primarily in their native language (L1) may struggle to discuss medical concepts with an English-speaking doctor after moving to the US. Similarly, a professional trained in their home country may find it difficult to understand and discuss technical matters with English-speaking colleagues despite having relevant expertise. Yet these conversations may also involve unfamiliar English idioms, abbreviations, or expressions. The language that best supports comprehension may also differ from the one needed to formulate a response. Therefore, we asked:
         </p>
         <div className="q pr-q2">
-          <p><b>RQ</b>How can the language of clarifications help bilingual speakers access their existing knowledge and the English wording needed to understand conversations and express their own ideas?</p>
+          <p><b>RQ</b>How can we adapt the language of AI clarifications to different conversational demands and users’ existing knowledge to support comprehension and response formulation?</p>
         </div>
-        <p>
-          I led the literature review, study and prototype design, integrating psycholinguistic research on bilingual processing, lexical access, memory, and speech production with HCI research on multilingual communication.
-        </p>
+        <Note icon={<Star />}>
+          In this study, I led the literature review, study design, and prototyping. Drawing on psycholinguistic research on bilingual processing, lexical access, memory, and speech production, alongside HCI research on multilingual communication, I helped translate these theoretical insights into the study’s experimental conditions and interface design.
+        </Note>
 
         <h3 className="pr-h3">Study Design</h3>
         <p>
-          We focused on <strong className="pr-term">clarifications</strong> alone to test whether varying one feature’s language presentation could support both comprehension and response planning/production. As suggestions can still steer what users say, we explored whether clarifications could instead help them access their own bilingual knowledge and the wording needed to express it, thereby preserving the substance of their contributions.
+          We focused on clarifications alone to 1) isolate the effects of language presentation and 2) test whether varying one feature’s language presentation could support both comprehension and response formulation. As suggestions can still steer what users say, we explored whether clarifications could directly provide the linguistic support needed to formulate their own ideas <strong className="pr-term">without supplying the substance of their contributions for better human agency and authorship</strong>.
         </p>
         <p>
-          We designed a counterbalanced <strong className="pr-term">3 × 2 × 2 within-subjects</strong> study with Chinese–English bilinguals. Each participant experienced every combination, allowing us to compare formats across conversational demands:
+          We designed a counterbalanced <strong className="pr-term">3 × 2 × 2 within-subjects study</strong> with Chinese–English bilinguals. Each participant experienced every combination, allowing us to compare formats across conversational demands:
         </p>
         <div className="xp-eq" role="list" aria-label="Design factors">
           {FACTORS.map((f, i) => (
@@ -520,12 +522,12 @@ const XplainDetail: React.FC = () => {
           ))}
         </div>
         <p>
-          Drawing on <strong className="pr-term">language-dependent memory and encoding specificity</strong>, we used language and domain-background measures to examine how bilingual history might influence the usefulness of each format beyond overall English proficiency.
+          Drawing on <strong className="pr-term">language-dependent memory and encoding specificity</strong>, we also considered participants’ educational and linguistic backgrounds to examine how prior learning might influence format preferences beyond general English proficiency.
         </p>
 
         <h3 className="pr-h3">Prototyping</h3>
         <p>
-          We wrote a dietitian-visit conversation combining medical terminology with everyday food and exercise vocabulary to explore language support in a realistic setting where it could be useful. Our Figma prototype displayed the assigned formats and let participants switch languages for individual clarifications, preserving control and revealing further preferences across terms and conversational demands.
+          We wrote a dietitian-visit conversation combining medical terminology with everyday food and exercise vocabulary to explore language support in a realistic setting where it could be useful. Our Figma prototype displayed the assigned formats and let participants switch languages for individual clarifications. This design helped preserve users’ control over how they accessed information while enabling us to examine preferences across different terms and conversational moments.
         </p>
         <div id="xp-demo" className="xp-videos">
           <figure>
@@ -545,13 +547,13 @@ const XplainDetail: React.FC = () => {
             <div key={t}><dt>{t}</dt><dd>{d}</dd></div>
           ))}
         </dl>
-        <Note small icon={<Hourglass />}>Data collection is complete. Analysis is ongoing.</Note>
+        <Note small icon={<Hourglass />}>We ran 30 user studies to evaluate this language-adaptive support. Analysis is ongoing.</Note>
       </Sec>
 
       {/* ------------------------------------------------------------ i-corps */}
       <Sec id="xp-icorps" icon="care" kicker="NSF I-Corps" title="Customer Discovery for Healthcare Communication">
         <p>
-          Alongside the lab studies, my PhD mentor and I were accepted into the <strong className="pr-term">NSF I-Corps Regional Course</strong> to explore XPLAIN’s translational and entrepreneurial potential. Through <strong className="pr-term">30 customer-discovery interviews</strong> with international and multilingual students, knowledge workers, healthcare professionals, and patients, we examined communication difficulties, unmet needs, existing workarounds, and adoption barriers. These interviews refined our target users, value proposition, and business model toward healthcare communication and navigation for NNS patients and their families.
+          Alongside the lab studies, my PhD mentor and I were accepted into the <strong className="pr-term">NSF I-Corps Regional Course</strong> to explore XPLAIN’s translational and entrepreneurial potential. Through <strong className="pr-term">30 customer-discovery interviews</strong> with international and multilingual students, knowledge workers, healthcare professionals, and patients, we examined communication difficulties, unmet needs, existing workarounds, and adoption barriers. These interviews refined our target users, value proposition, and business model toward healthcare communication and navigation for NNES patients and their families.
         </p>
 
         <h3 className="pr-h3">Customer-Discovery Findings</h3>
