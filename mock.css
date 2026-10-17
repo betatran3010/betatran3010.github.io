@@ -1057,3 +1057,7 @@ html[data-theme="dark"] .xc.hi{background:color-mix(in srgb,var(--a) 26%,#131C2E
 .xp-fl .xp-either{margin-top:12px}
 .xp .xp-sec{padding-top:36px!important}
 .xp .xp-contents+.xp-sec{padding-top:28px!important}
+html:not([data-theme="dark"]) .theme-science .nextrow button{box-shadow:6px 6px 0 0 #1B3FA0!important}
+html:not([data-theme="dark"]) .theme-science .nextrow button:hover{box-shadow:10px 10px 0 0 #1B3FA0!important}
+html:not([data-theme="dark"]) .theme-xplainpage .nextrow button{box-shadow:6px 6px 0 0 #EE8B2C!important}
+html:not([data-theme="dark"]) .theme-xplainpage .nextrow button:hover{box-shadow:10px 10px 0 0 #EE8B2C!important}
