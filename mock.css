@@ -1402,3 +1402,5 @@ html[data-theme="dark"] .mm-tabs .pr-seg button.on{color:#2A0A08!important}
 .mm-shot img{max-height:min(560px,calc(100vh - 260px))}
 .mm-shot .xp-vwrap video{max-height:calc(100vh - 260px)}
 .mm-final{margin-top:44px!important}
+html[data-theme="dark"] .mm-tabs .pr-seg button.on{background:var(--a)!important;border-color:var(--a)!important;color:#1A0A09!important}
+html[data-theme="dark"] .mm-tabs .pr-seg button:not(.on){color:#E3E9F3!important;border-color:rgba(255,255,255,.28)!important}
