@@ -657,7 +657,7 @@ const ReposetDetailSection: React.FC = () => {
       {/* --- SHOWCASE VIDEO (Not Auto-play, Upright) --- */}
       <section className="max-w-6xl mx-auto px-4 ">
         <h3 className="font-heading font-black text-3xl md:text-3xl text-amber-900 mb-6 text-center">Project Showcase</h3>
-        <div className="bg-amber-900 rounded-[3rem] p-4 md:p-6 shadow-2xl">
+        <div className="bg-amber-900 rounded-[3rem] p-4 md:p-6 shadow-2xl max-w-3xl mx-auto">
           <div className="bg-black rounded-[2.5rem] overflow-hidden aspect-video relative group">
             <ShowcaseVideo src={`${import.meta.env.BASE_URL}videos/reposet-showcase.mp4`} />
           </div>

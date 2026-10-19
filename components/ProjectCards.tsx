@@ -31,6 +31,7 @@ const Card: React.FC<{ p: Project }> = ({ p }) => {
                 {p.venues.map(v => <li key={v}>{v}</li>)}
               </ul>
             )}
+            {p.kicker && <p className="pc-kicker">{p.kicker}</p>}
             {p.rq ? (
               <div className="pc-q pc-rq"><b>RQ</b><ol>{p.rq.map((q, i) => <li key={i}><span>({i + 1})</span> {q}</li>)}</ol></div>
             ) : (

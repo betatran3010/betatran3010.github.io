@@ -27,7 +27,7 @@ export const projects: Project[] = [
     id: 1,
     slug: "xplain",
     title: "XPLAIN - Proactive Meeting AI",
-    context: "Communication & Collaborative Technologies Lab",
+    context: "Communication and Collaborative Technologies Lab",
     institution: "Cornell University",
     pi: "Dr. Susan Fussell",
     problem: "How can we support non-native speakers’ comprehension and expression in live conversations while accommodating individual processing needs and preserving control over their contributions?",
@@ -61,6 +61,24 @@ export const projects: Project[] = [
         </p>
       </>
     ),
+  },
+  {
+    id: 6,
+    slug: "cognitive-offloading",
+    title: "Cognitive Offloading and Deep Distortions in Episodic and Semantic Memory",
+    context: "Memory and Neuroscience Lab",
+    kicker: "Honors Thesis",
+    institution: "Cornell University",
+    pi: "Dr. Charles Brainerd",
+    problem: "When people expect technology to store or retrieve information for them, does that expectation change the precision of their own memory and the consistency of their memory-based judgments?",
+    rq: [
+      "When people expect technology to store or retrieve information for them, does that expectation change the precision of their own memory and the consistency of their memory-based judgments?",
+      "Do any effects differ across episodic and semantic memory?",
+    ],
+    image: `${import.meta.env.BASE_URL}images/memory/cover.jpg`,
+    tags: ["Cognitive offloading", "Fuzzy-Trace Theory", "Conjoint recognition", "Multinomial processing trees", "False memory"],
+    year: "2025–2026",
+    description: "Two experiments testing whether expecting external storage and search changes verbatim and gist memory.",
   },
   {
     id: 2,

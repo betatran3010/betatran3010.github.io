@@ -10,6 +10,7 @@ export interface Project {
   problem: string; // "How might we..."
   institution?: string; // shown as a chip on the card
   pi?: string; // principal investigator, shown as a chip on the card
+  kicker?: string; // bold line shown above the RQ box on the card
   rq?: string[]; // research questions; when set, the card shows "RQ" and one line per question
   image: string;
   tags: string[];

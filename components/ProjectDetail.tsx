@@ -10,6 +10,7 @@ import XplainTranslationSection from './XplainTranslationSection';
 import XplainPersonalizationSection from './XplainPersonalizationSection';
 import ReposetDetailSection from './ReposetDetailSection';
 import PeerReviewDetail from './PeerReviewDetail';
+import MemoryDetail from './MemoryDetail';
 
 interface ProjectDetailProps {
   project: Project;
@@ -30,12 +31,25 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack, onNext }
   const isXplain = project.id === 1;
   const isReposet = project.id === 3;
   const isReview = project.id === 5;
+  const isMemory = project.id === 6;
 
   if (isXplain) {
     return (
       <div className="wrap wide inner theme-xplainpage">
         <a className="back" href="#projects" onClick={e => { e.preventDefault(); onBack(); }}>← Back to projects</a>
         <XplainDetail />
+        <div className="nextrow">
+          <Button onClick={onNext || onBack} variant="ink">Back to all projects</Button>
+        </div>
+      </div>
+    );
+  }
+
+  if (isMemory) {
+    return (
+      <div className="wrap wide inner theme-memory">
+        <a className="back" href="#projects" onClick={e => { e.preventDefault(); onBack(); }}>← Back to projects</a>
+        <MemoryDetail />
         <div className="nextrow">
           <Button onClick={onNext || onBack} variant="ink">Back to all projects</Button>
         </div>

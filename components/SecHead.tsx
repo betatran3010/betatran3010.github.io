@@ -1,16 +1,19 @@
 import React from 'react';
-import { Languages, MessageSquareText, SlidersHorizontal, Stethoscope } from 'lucide-react';
+import { BookOpen, Compass, Languages, MessageSquareText, SlidersHorizontal, Stethoscope } from 'lucide-react';
 
-type IconName = 'chat' | 'sliders' | 'languages' | 'care' | 'research' | 'palette' | 'news' | 'doc' | 'flask' | 'ruler' | 'chart' | 'bulb' | 'clipboard';
+type IconName = 'chat' | 'sliders' | 'languages' | 'care' | 'research' | 'palette' | 'news' | 'doc' | 'flask' | 'ruler' | 'chart' | 'bulb' | 'clipboard' | 'brain' | 'book' | 'compass';
 
 const LUCIDE: Partial<Record<IconName, React.ComponentType<React.SVGProps<SVGSVGElement>>>> = {
   chat: MessageSquareText,
   sliders: SlidersHorizontal,
   languages: Languages,
   care: Stethoscope,
+  book: BookOpen,
+  compass: Compass,
 };
 
 const ICONS: Partial<Record<IconName, React.ReactNode>> = {
+  brain: <><path d="M8 21v-4.2C5.7 15.5 4.5 13.3 4.5 10.8A7.3 7.3 0 0 1 12 3.5a7.3 7.3 0 0 1 7.5 7.3c0 .7.1 1.1.4 1.7l1.1 2.2-1.9.7V18a2.5 2.5 0 0 1-2.5 2.5H15V21" /><circle cx="12" cy="10" r="2.2" /><path d="M12 5.8v2M12 12.2v2M7.8 10h2M14.2 10h2M9 7l1.4 1.4M13.6 11.6 15 13M15 7l-1.4 1.4M10.4 11.6 9 13" /></>,
   flask: <><path d="M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.5a1 1 0 0 0 .9 1.5h12.8a1 1 0 0 0 .9-1.5l-5.1-10.1a2 2 0 0 1-.2-.9V2" /><path d="M8.5 2h7M7 16h10" /></>,
   ruler: <><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0z" /><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2" /></>,
   chart: <><path d="M3 3v18h18" /><path d="M18 17V9M13 17V5M8 17v-3" /></>,
