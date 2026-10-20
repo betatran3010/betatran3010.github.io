@@ -8,7 +8,7 @@ const news: { date: string; text: React.ReactNode }[] = [
   { date: 'Sep 2026', text: 'My team won the CMD-IT GenAI Student Hackathon at the Tapia Conference!' },
   { date: 'May 2026', text: 'I was awarded Cornell Psychology Summer Undergraduate Research Funding (SURF) ($1,320) to support my independent psychology honors thesis with Professor Charles Brainerd!' },
   { date: 'May 2026', text: 'I was one of 2 undergraduates selected by Cornell’s Department of Information Science to receive a $1,500 travel award to attend the Tapia Conference on Technology and Computing!' },
-  { date: 'Mar 2026', text: 'I was awarded the Cornell Summer Experience Grant ($3,500) to support my summer research internship in the Gopnik Cognitive Development and Learning Lab at UC Berkeley!' },
+  { date: 'Mar 2026', text: 'I was selected as 1 of 7 students from 400+ applicants for a summer research internship at the Gopnik Cognitive Development and Learning Lab at UC Berkeley! I was also awarded the Cornell Summer Experience Grant ($3,500) to help fund the internship.' },
   { date: 'Feb 2026', text: 'I was elected to Cornell’s chapter of Phi Beta Kappa, an honor awarded to 3% of juniors in the College of Arts and Sciences!' },
 ];
 
