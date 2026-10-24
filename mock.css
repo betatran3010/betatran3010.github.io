@@ -1404,3 +1404,9 @@ html[data-theme="dark"] .mm-tabs .pr-seg button.on{color:#2A0A08!important}
 .mm-final{margin-top:44px!important}
 html[data-theme="dark"] .mm-tabs .pr-seg button.on{background:var(--a)!important;border-color:var(--a)!important;color:#1A0A09!important}
 html[data-theme="dark"] .mm-tabs .pr-seg button:not(.on){color:#E3E9F3!important;border-color:rgba(255,255,255,.28)!important}
+.bio .bio-q{margin:8px 0 0;padding-left:1.4em;display:grid;gap:6px;color:var(--ink-2)}
+.bio .bio-q+p{margin-top:12px}
+.bio-a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,var(--a,#B31B1B) 60%,transparent)}
+.bio-a:hover,.bio-a:focus-visible{text-decoration-color:currentColor}
+.bio-a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:3px}
+.bio .bio-q{list-style:decimal outside}.bio .bio-q li::marker{color:var(--ink-2);font-weight:600}
