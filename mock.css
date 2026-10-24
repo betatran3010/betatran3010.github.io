@@ -1411,8 +1411,8 @@ html[data-theme="dark"] .mm-tabs .pr-seg button:not(.on){color:#E3E9F3!important
 .bio-a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:3px}
 .bio .bio-q{list-style:decimal outside}.bio .bio-q li::marker{color:var(--ink-2);font-weight:600}
 @media (min-width:901px){
-  .hero{grid-template-columns:minmax(0,1.9fr) minmax(0,.62fr);gap:36px;padding-block:6px 44px}
-  .hero .bio{max-width:96ch;margin-top:6px}
-  .hero .portrait{max-width:270px}
-  .hero .stage{padding:14px}
+  .hero{padding-block:4px 40px;gap:44px}
+  .hero .bio{margin-top:6px;line-height:1.55}
+  .hero .bio p+p{margin-top:8px}
+  .hero .stage{padding:12px 30px}
 }
