@@ -3,6 +3,7 @@ import SecHead from './SecHead';
 
 // Newest first. The list scrolls once it is taller than the box.
 const news: { date: string; text: React.ReactNode }[] = [
+  { date: 'Nov 2026', text: 'I was awarded the Cornell Power of Experience Grant ($1,500) to support travel to present my first-authored research at two NeurIPS 2026 workshops!' },
   { date: 'Oct 2026', text: 'I was selected as one of 2-4 undergraduates nominated by Cornell’s Department of Information Science for the national Computing Research Association (CRA) Outstanding Undergraduate Researcher Awards!' },
   { date: 'Sep 2026', text: <>My paper with Eunice Yiu (UC Berkeley), <a href="#project/peer-review"><em>Who’s Doing the Reviewing? Tracing AI Delegation in Scientific Peer Review</em></a>, was accepted to two NeurIPS 2026 workshops: AI-Native Academia and AI &amp; Science - Evolution or Extinction?</> },
   { date: 'Sep 2026', text: 'My team won the CMD-IT GenAI Student Hackathon at the Tapia Conference!' },
