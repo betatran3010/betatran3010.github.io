@@ -19,7 +19,7 @@ export const projects: Project[] = [
     year: "Jun–Sep 2026",
     venues: [
       "Accepted at AI-Native Academia and AI & Science - Evolution or Extinction? @ NeurIPS 2026",
-      "Submitted to CHI 2027",
+      "Revise-and-resubmit at CHI 2027",
     ],
     description: "A process-tracing study of 104 researchers reviewing a paper with optional AI assistance.",
   },

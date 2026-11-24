@@ -119,7 +119,7 @@ const PeerReviewDetail: React.FC = () => {
         <p className="pr-aff"><sup>1</sup> Cornell University · <sup>2</sup> University of California, Berkeley</p>
         <ul className="pr-venues">
           <li>Accepted at AI-Native Academia and AI &amp; Science - Evolution or Extinction? @ NeurIPS 2026</li>
-          <li>Submitted to CHI 2027</li>
+          <li>Revise-and-resubmit at CHI 2027</li>
         </ul>
         <div className="pr-btns">
           <a className="pr-btn" href={PAPER_URL} target="_blank" rel="noopener noreferrer"><FileText aria-hidden="true" />Paper<ArrowUpRight aria-hidden="true" /></a>
